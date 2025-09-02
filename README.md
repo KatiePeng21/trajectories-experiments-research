@@ -1,7 +1,6 @@
 # Trajectories Experiments Research
 
-A research-oriented sandbox for experimenting with deep learning models (GRU, LSTM, Transformer, TCN, etc.) for trajectory prediction.  
-This repo is organized so multiple contributors can collaborate without confusion and reproduce results.
+Research-oriented sandbox for experimenting with deep learning models (GRU, LSTM, Transformer, TCN, etc.) for trajectory prediction.  
 
 ---
 
