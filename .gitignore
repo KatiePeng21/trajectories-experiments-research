@@ -3,7 +3,7 @@
 # =========================
 
 # Data (keep all data out of git)
-data/
+/data/
 *.csv
 *.parquet
 *.zip
@@ -11,7 +11,7 @@ data/
 *.json
 
 # Artifacts / checkpoints (large binaries)
-artifacts/
+/artifacts/
 checkpoints/
 *.pt
 *.pth
@@ -19,9 +19,9 @@ checkpoints/
 *.ckpt
 
 # Logs / outputs
-logs/
-wandb/
-outputs/
+/logs/
+/wandb/
+/outputs/
 tensorboard/                 # if you use this folder
 lightning_logs/              # if you ever try PyTorch Lightning
 events.out.tfevents.*        # TF event files

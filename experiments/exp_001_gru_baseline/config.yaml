@@ -1,0 +1,14 @@
+model: GRU
+hidden_size: 128
+num_layers: 1
+dropout: 0.0
+lr: 0.001
+batch_size: 64
+epochs: 5
+seed: 42
+seq_len: 30
+pred_horizon: 10
+dataset_path: data/processed/oslo.parquet   # path to Oslo folder
+features: [lat, lon, alt, time]
+target: [lat, lon, alt]
+val_ratio: 0.1
