@@ -10,7 +10,7 @@ trajectories-experiments-research/
 ├─ README.md                         # project overview + how to run  
 ├─ .gitignore                        # keeps data/models/logs out of git  
 ├─ requirements.txt                  # Python dependencies  
-├─ LICENSE                           # (optional) license file  
+├─ LICENSE                           # license file  
 │  
 ├─ data/                             # (gitignored) datasets  
 │  ├─ raw/                           # original CSV/Parquet/JSON  
