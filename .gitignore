@@ -26,22 +26,6 @@ tensorboard/                 # if you use this folder
 lightning_logs/              # if you ever try PyTorch Lightning
 events.out.tfevents.*        # TF event files
 
-# Experiments:
-# Ignore everything inside experiments/, but keep these small text files:
-#   - runs.csv
-#   - config.yaml / metrics.json / notes.md inside each exp_XXX_*/ folder
-experiments/**
-!experiments/runs.csv
-!experiments/*/
-!experiments/*/config.yaml
-!experiments/*/metrics.json
-!experiments/*/notes.md
-# If you accidentally drop big stuff inside experiment folders, still ignore:
-experiments/*/checkpoints/
-experiments/*/logs/
-experiments/*/*.pt
-experiments/*/*.pth
-
 # Notebook checkpoints only (keep .ipynb files themselves)
 .ipynb_checkpoints/
 
