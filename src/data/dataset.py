@@ -60,8 +60,8 @@ class TrajectoryDataset(Dataset):
         targ_std: Standardizer,
         indices: np.ndarray,
     ):
-        Xs = feat_std.transform(X.view(-1, X.shape[-1])).view_as(X)
-        Ys = targ_std.transform(Y.view(-1, Y.shape[-1])).view_as(Y)
+        Xs = feat_std.transform(X.reshape(-1, X.shape[-1])).reshape(*X.shape)
+        Ys = targ_std.transform(Y.reshape(-1, Y.shape[-1])).reshape(*Y.shape)
         self.X = Xs[indices]
         self.Y = Ys[indices]
 
