@@ -52,40 +52,64 @@ cd trajectories-experiments-research
 python -m venv .venv
 source .venv/bin/activate        # on Windows use: .venv\Scripts\activate
 
-# install dependencies
-pip install -r requirements.txt
-```
+pip install -r requirements.txt  
+
+Minimal requirements.txt starter:  
+torch  
+numpy  
+pandas  
+scikit-learn  
+matplotlib  
+tqdm  
+pyyaml  
 
 ---
 
-## Models Explored
-- GRU (baseline recurrent sequence model)
-- LSTM (classic recurrent model)
-- Transformer Encoder (attention-based sequence model)
-- Temporal Convolutional Network (TCN)
-- Mamba (state space model)
-- Additional models under development
+## Running a Baseline Example
+
+python -m src.train --model gru --epochs 10 --batch-size 64 --lr 1e-3  
+
+This should:  
+- write metrics to experiments/exp_XXX/metrics.json  
+- append a row to experiments/runs.csv  
+- save the best checkpoint to artifacts/  
 
 ---
 
-## Experiment Tracking
+## .gitignore (important entries)
 
-Each experiment lives under `experiments/` but the structure is **not yet fully standardized**.  
+__pycache__/        *.py[cod]      .ipynb_checkpoints/  
+.venv/  venv/  env/  
+.DS_Store  Thumbs.db  
 
-- Some experiments (e.g. `exp_001/`) follow the full format:
-  - `config.yaml` — configuration settings
-  - `metrics.json` — performance metrics
-  - `notes.md` — qualitative observations
-- Other experiments are simpler and currently just contain:
-  - `train.py` / `test.py` — experiment-specific scripts
+# data & heavy outputs  
+data/  
+artifacts/  
+logs/  
+wandb/  
+outputs/  
 
-**Note:** Standardization is a work in progress. The goal is for every experiment to eventually include config, metrics, and notes for reproducibility.
+# large files  
+*.csv  
+*.parquet  
+*.zip  
+*.npz  
+*.pt  
+*.pth  
 
 ---
 
-## Acknowledgements
-- Oslo Dataset for providing real-world aircraft trajectories.
-- Original trajectory prediction work conducted during HUVTSP (Harvard Undergraduate Ventures TECH Summer Program).
+## Contributing Workflow
 
-This repository represents independent group research and is not affiliated with Vanguard Defense or any internship program.
+- Branches: feat/<thing>, exp/<short-run-name>, fix/<bug>  
+- After a run: create experiments/exp_XXX_<tag>/ and update experiments/runs.csv  
+- Keep notebooks lightweight; move reusable code into src/  
+- Never commit large data or checkpoints (keep in data/ or artifacts/)  
 
+---
+
+## Naming Tips
+
+- Experiments: exp_003_tcn_dilations, exp_012_xfmr_lr1e-4  
+- Checkpoints: <model>_<dataset>_<timestamp>.pt  
+- Clear commits: feat: add TCN block, exp: GRU vs LSTM bs=128  
